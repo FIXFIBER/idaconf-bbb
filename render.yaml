@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: idaconf-bbb
+    runtime: ruby
+    plan: free
+    region: frankfurt
+    branch: main
+    buildCommand: bundle install && yarn install --ignore-engines && bundle exec rails assets:precompile
+    startCommand: bin/rails server -p $PORT
+    envVars:
+      - key: SECRET_KEY_BASE
+        generateValue: true
+      - key: BIGBLUEBUTTON_ENDPOINT
+        sync: false
+      - key: BIGBLUEBUTTON_SECRET
+        sync: false
+      - key: RAILS_ENV
+        value: production
+      - key: RAILS_LOG_TO_STDOUT
+        value: "true"
+      - key: ALLOWED_DOMAINS
+        sync: false
