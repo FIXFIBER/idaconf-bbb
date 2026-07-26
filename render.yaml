@@ -5,18 +5,24 @@ services:
     plan: free
     region: frankfurt
     branch: main
-    buildCommand: bundle install && yarn install --ignore-engines && bundle exec rails assets:precompile
+    buildCommand: bundle install && yarn install --ignore-engines && bundle exec rails assets:precompile && bin/rails db:migrate
     startCommand: bin/rails server -p $PORT
     envVars:
       - key: SECRET_KEY_BASE
         generateValue: true
       - key: BIGBLUEBUTTON_ENDPOINT
-        sync: false
+        value: https://test-install.blindsidenetworks.com/bigbluebutton/api
       - key: BIGBLUEBUTTON_SECRET
-        sync: false
+        value: 8cd8ef52e8e101574e400365b55e11a6
       - key: RAILS_ENV
         value: production
       - key: RAILS_LOG_TO_STDOUT
         value: "true"
+      - key: BUNDLE_FROZEN
+        value: "false"
+      - key: PGSSLMODE
+        value: require
       - key: ALLOWED_DOMAINS
-        sync: false
+        value: "*"
+      - key: DATABASE_URL
+        value: postgres://greenlight_gwab_user:dfcT9eqeHSq6sm19UJiuDB75BhJ6o3GW@dpg-d9j5e5beo5us73asqtv0-a.frankfurt-postgres.render.com/greenlight_gwab?sslmode=require
