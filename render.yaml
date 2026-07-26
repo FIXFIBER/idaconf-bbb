@@ -5,8 +5,8 @@ services:
     plan: free
     region: frankfurt
     branch: main
-    buildCommand: bundle install && yarn install --ignore-engines && bundle exec rails assets:precompile && bin/rails db:migrate
-    startCommand: bin/rails server -p $PORT
+    buildCommand: bundle install && yarn install --ignore-engines && bundle exec rails assets:precompile
+    startCommand: bin/rails db:migrate && bin/rails server -p $PORT
     envVars:
       - key: SECRET_KEY_BASE
         generateValue: true
