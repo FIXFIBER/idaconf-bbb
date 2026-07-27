@@ -93,9 +93,11 @@ export default function App() {
 
   if (isLoading) return null;
 
-  document.documentElement.style.setProperty('--brand-color', brandColors.PrimaryColor);
-  document.documentElement.style.setProperty('--brand-color-light', brandColors.PrimaryColorLight);
-  document.documentElement.style.setProperty('--toastify-color-success', brandColors.PrimaryColor);
+  const primaryColor = brandColors?.PrimaryColor || '#467fcf';
+  const primaryColorLight = brandColors?.PrimaryColorLight || '#e8eff9';
+  document.documentElement.style.setProperty('--brand-color', primaryColor);
+  document.documentElement.style.setProperty('--brand-color-light', primaryColorLight);
+  document.documentElement.style.setProperty('--toastify-color-success', primaryColor);
 
   return (
     <>

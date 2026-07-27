@@ -148,7 +148,11 @@ Rails.application.configure do
                                    'ApplicationCable::Connection#disconnect', 'RoomsChannel#unsubscribe']
 
   # Use a different cache store in production.
-  config.cache_store = :redis_cache_store, { url: ENV.fetch('REDIS_URL', nil) }
+  config.cache_store = if ENV['REDIS_URL'].present?
+                         [:redis_cache_store, { url: ENV['REDIS_URL'] }]
+                       else
+                         :memory_store
+                       end
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   config.active_job.queue_adapter = :async # TODO: Configure :resque

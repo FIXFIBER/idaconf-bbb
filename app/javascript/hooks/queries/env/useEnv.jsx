@@ -20,6 +20,6 @@ import axios from '../../../helpers/Axios';
 export default function useEnv() {
   return useQuery(
     'getEnv',
-    () => axios.get('/api/v1/env.json').then((resp) => resp.data.data),
+    () => axios.get('/env.json').then((resp) => resp.data.data),
   );
 }
