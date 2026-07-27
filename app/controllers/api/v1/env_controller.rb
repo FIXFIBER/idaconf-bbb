@@ -21,7 +21,6 @@ module Api
     class EnvController < ApiController
       skip_before_action :ensure_authenticated
 
-      skip_before_action :ensure_valid_request, only: :index
       # GET /api/v1/env
       # Returns basic NON-CONFIDENTIAL information on the environment variables
       def index
