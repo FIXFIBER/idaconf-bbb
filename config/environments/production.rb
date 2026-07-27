@@ -25,7 +25,7 @@ Rails.application.configure do
   # (Greenlight's config/secrets.yml is ignored by Rails 7.2, and the
   # production credentials are encrypted with an unavailable master.key).
   config.require_master_key = false
-  config.secret_key_base = ENV["SECRET_KEY_BASE"] if ENV["SECRET_KEY_BASE"].present?
+  config.secret_key_base = "12f0036d97c66093f525e306e4a7d5de24422d714e8be4f766eaf37e4fa76e153aaf07e61996c09354b1214ae9b39297da0f2beb590a4aeb5b4a6e77d42a488a"
 
   # Code is not reloaded between requests.
   config.enable_reloading = false
