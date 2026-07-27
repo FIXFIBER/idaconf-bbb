@@ -21,6 +21,12 @@ require 'active_support/core_ext/integer/time'
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Read secret_key_base from ENV so the app boots without a master.key
+  # (Greenlight's config/secrets.yml is ignored by Rails 7.2, and the
+  # production credentials are encrypted with an unavailable master.key).
+  config.require_master_key = false
+  config.secret_key_base = ENV["SECRET_KEY_BASE"] if ENV["SECRET_KEY_BASE"].present?
+
   # Code is not reloaded between requests.
   config.enable_reloading = false
 
