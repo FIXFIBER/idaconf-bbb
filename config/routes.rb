@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   get '/health_check', to: 'health_checks#check'
 
   # All the Api endpoints must be under /api/v1 and must have an extension .json.
-  namespace :api do
+  namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :sessions, only: %i[index create] do
         collection do
