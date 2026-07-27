@@ -9,7 +9,7 @@ services:
     startCommand: bin/rails db:migrate && bin/rails server -p $PORT
     envVars:
       - key: SECRET_KEY_BASE
-        generateValue: true
+        value: 12f0036d97c66093f525e306e4a7d5de24422d714e8be4f766eaf37e4fa76e153aaf07e61996c09354b1214ae9b39297da0f2beb590a4aeb5b4a6e77d42a488a
       - key: BIGBLUEBUTTON_ENDPOINT
         value: https://test-install.blindsidenetworks.com/bigbluebutton/api
       - key: BIGBLUEBUTTON_SECRET
