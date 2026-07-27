@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   # Health checks
   get '/health_check', to: 'health_checks#check'
+  get '/env.json', to: redirect('/api/v1/env.json')
 
   # All the Api endpoints must be under /api/v1 and must have an extension .json.
   namespace :api, defaults: { format: :json } do
