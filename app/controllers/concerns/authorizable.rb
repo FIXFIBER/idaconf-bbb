@@ -54,6 +54,6 @@ module Authorizable
 
   # Ensures that requests to the API are explicit enough.
   def valid_api_request?
-    request.format == :json && request.headers['Accept']&.include?('application/json')
+    request.headers['Accept']&.include?('application/json')
   end
 end
